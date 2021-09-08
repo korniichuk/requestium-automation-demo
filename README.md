@@ -8,6 +8,7 @@
 * **[Portability](#portability)**
 * **[How to run](#how-to-run)**
   * **[Python script](#python-script)**
+* **[FAQ](#faq)**
 
 ## Portability
 `requestium-automation-demo` checked on Ubuntu Desktop 18.04 LTS operating system.
@@ -45,3 +46,14 @@ $ python3 booking_auto_example.py
 ```
 
 [![demo_0001_youtube.png](img/demo_0001_youtube.png "See demo on YouTube")](https://youtu.be/hroRpT8mq6M)
+
+## FAQ
+**1. How to generate bezkolejki.eu security token:**
+```python3
+import requests
+
+url = 'https://bezkolejki.eu/api/Authentication/GetEmptyToken/suw'
+r = requests.get(url)
+token = r.json()['token']
+print(f"token: '{token}'")
+```
