@@ -43,3 +43,5 @@ $ pipenv install
 ```sh
 $ python3 booking_auto_example.py
 ```
+
+[![demo_0001_youtube.png](img/demo_0001_youtube.png "See demo on YouTube")](https://youtu.be/hroRpT8mq6M)
