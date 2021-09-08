@@ -57,3 +57,21 @@ r = requests.get(url)
 token = r.json()['token']
 print(f"token: '{token}'")
 ```
+
+**2. How to generate recaptcha token:**
+```python3
+import re
+
+import requests
+
+recaptcha_regex = re.compile(r'<input type="hidden" id="recaptcha-token" value="([^"]+)">')
+
+k = '6LeCXbUUAAAAALp9bXMEorp7ONUX1cB1LwKoXeUY'
+co = 'aHR0cHM6Ly9iZXprb2xlamtpLmV1OjQ0Mw..'
+v = 'wxAi4AKLXL2kBAvXqI4XLSWS'
+cb = '123456789'  # TODO
+url = f'https://www.google.com/recaptcha/api2/anchor?ar=1&k={k}&co={co}&hl=en&v={v}&size=invisible&cb={cb}'
+r = requests.get(url)
+recaptcha_token  = recaptcha_regex.search(r.text).group(1)
+print(f"recaptcha token: '{recaptcha_token}'")
+```
