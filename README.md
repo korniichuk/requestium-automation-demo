@@ -94,3 +94,15 @@ if text.startswith(prefix):
 solved_recaptcha_token = json.loads(text)[1]
 print(f"solved recaptcha token: {solved_recaptcha_token}")
 ```
+
+**4. How to get available dates:**
+```python3
+import requests
+
+operation_id = 95
+url = f'https://bezkolejki.eu/api/Slot/GetAvailableDaysForOperation?operationId={operation_id}&recaptchaToken={solved_recaptcha_token}'
+headers = {'Authorization': f'Bearer {token}'}
+r = requests.get(url, headers=headers)
+dates = r.json()
+print(f'available dates: {dates}')
+```
